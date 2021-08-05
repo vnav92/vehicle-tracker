@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 
 import icon from '../../assets/ufo-icon.svg';
 import { MapCenterSetter } from './map-center-setter.component';
-import styles from './vehicles-map.module.scss';
+import styles from './ufo-vehicles-map.module.scss';
 
 const ICON_SIZE = 50;
 const defaultIcon = L.icon({
@@ -13,7 +13,7 @@ const defaultIcon = L.icon({
   iconSize: [ICON_SIZE, ICON_SIZE]
 });
 
-export const VehiclesMap: React.FC<ComponentProps<typeof MapCenterSetter>> = ({
+export const UfoVehiclesMap: React.FC<ComponentProps<typeof MapCenterSetter>> = ({
   vehiclesData
 }) => {
 

@@ -1,7 +1,8 @@
 module.exports = {
   initialData: [
     {
-      id: 1,
+      id: 'XZ-42P',
+      planetName: 'Gliese',
       coordinates: {
         lat: {
           degrees: 50,
@@ -14,7 +15,8 @@ module.exports = {
       }
     },
     {
-      id: 2,
+      id: 'UU-11',
+      planetName: 'Cancri E',
       coordinates: {
         lat: {
           degrees: 50,
@@ -27,7 +29,8 @@ module.exports = {
       }
     },
     {
-      id: 3,
+      id: 'KXL-1',
+      planetName: 'Wasp-12b',
       coordinates: {
         lat: {
           degrees: 50,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import socketClient  from "socket.io-client";
 
 import { VehiclesData } from './types';
-import { VehiclesMap } from "./components";
+import { UfoVehiclesMap } from "./components";
 
 const DEFAULT_PORT = 8080;
 
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <>
       <p>this is a place for the future app</p>
-      <VehiclesMap vehiclesData={vehiclesData}/>
+      <UfoVehiclesMap vehiclesData={vehiclesData}/>
     </>
   )
 }

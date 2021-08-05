@@ -1,1 +1,1 @@
-export * from './vehicles-map';
+export * from './ufo-vehicles-map';
