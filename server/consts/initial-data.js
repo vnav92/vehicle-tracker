@@ -3,6 +3,7 @@ module.exports = {
     {
       id: 'XZ-42P',
       planetName: 'Gliese',
+      isFriend: true,
       coordinates: {
         lat: {
           degrees: 50,
@@ -17,6 +18,7 @@ module.exports = {
     {
       id: 'UU-11',
       planetName: 'Cancri E',
+      isFriend: true,
       coordinates: {
         lat: {
           degrees: 50,
@@ -31,6 +33,7 @@ module.exports = {
     {
       id: 'KXL-1',
       planetName: 'Wasp-12b',
+      isFriend: false,
       coordinates: {
         lat: {
           degrees: 50,

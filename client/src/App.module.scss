@@ -1,0 +1,16 @@
+@import './styles';
+
+$wrapper-max-width: 1400px;
+
+.wrapper {
+  padding: $default-spacing;
+  width: 100%;
+  max-width: $wrapper-max-width;
+  display: flex;
+  margin: auto;
+  background: $background-color;
+}
+
+.layoutMember {
+  flex: 1
+}
