@@ -2,10 +2,11 @@ import React from "react";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faIdCard,
-  faGlobe,
-  faLocationArrow,
   faAngry,
+  faGlobe,
+  faIdCard,
+  faLocationArrow,
+  faBan,
   faSmile
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -39,7 +40,7 @@ export const UfoData: React.FC<UfoDataProps> = ({
           />
         </div>
       </div>
-      {vehiclesData && (
+      {vehiclesData ? (
         <div className={styles.vehiclesWrapper}>
           <h2 className={styles.subHeader}>
             Vehicles currently in the airspace:
@@ -68,6 +69,11 @@ export const UfoData: React.FC<UfoDataProps> = ({
               </span>
             </div>
           ))}
+        </div>
+      ) : (
+        <div className={styles.noDataWrapper}>
+          <FontAwesomeIcon icon={faBan}/>
+          <h3 className={styles.noDataHeader}>No data</h3>
         </div>
       )}
     </div>

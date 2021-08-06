@@ -14,3 +14,14 @@ $wrapper-max-width: 1400px;
 .layoutMember {
   flex: 1;
 }
+
+@media screen and (max-width: $layout-align-breakpoint) {
+  .wrapper {
+    flex-direction: column;
+    margin: auto calc(#{$default-spacing} * 4);
+  }
+
+  .layoutMember {
+    flex: unset;
+  }
+}

@@ -18,7 +18,9 @@ body {
 #root {
   height: 100%;
   display: flex;
+  padding: $default-spacing;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 code {
