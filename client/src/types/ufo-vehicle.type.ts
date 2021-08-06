@@ -7,5 +7,5 @@ export type UfoVehicle = {
   coordinates: {
     lat: number;
     lng: number;
-  }
+  };
 };

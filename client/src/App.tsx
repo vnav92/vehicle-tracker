@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import socketClient  from "socket.io-client";
+import React, { useEffect, useState } from "react";
+import socketClient from "socket.io-client";
 
-import { VehiclesData } from './types';
+import { VehiclesData } from "./types";
 import { UfoData, UfoVehiclesMap } from "./components";
 
-import styles from './App.module.scss';
+import styles from "./App.module.scss";
 
 const DEFAULT_PORT = 8080;
 
 const App = () => {
-
   const [vehiclesData, setVehiclesData] = useState<VehiclesData | null>(null);
   const [hoveredVehicleId, setHoveredVehicleId] = useState<string | null>(null);
   useEffect(() => {
-    const newSocket = socketClient(`http://${window.location.hostname}:${DEFAULT_PORT}`);
+    const newSocket = socketClient(
+      `http://${window.location.hostname}:${DEFAULT_PORT}`
+    );
 
-    newSocket.on('data', (data: VehiclesData) => {
-      setVehiclesData(data)
-    })
+    newSocket.on("data", (data: VehiclesData) => {
+      setVehiclesData(data);
+    });
     return () => {
-      newSocket.close()
+      newSocket.close();
     };
   }, []);
 
@@ -36,7 +37,7 @@ const App = () => {
         className={styles.layoutMember}
       />
     </div>
-  )
-}
+  );
+};
 
 export default App;
