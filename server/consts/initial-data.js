@@ -1,8 +1,8 @@
 module.exports = {
   initialData: [
     {
-      id: 'XZ-42P',
-      planetName: 'Gliese',
+      id: "XZ-42P",
+      planetName: "Gliese",
       isFriend: true,
       coordinates: {
         lat: {
@@ -16,8 +16,8 @@ module.exports = {
       }
     },
     {
-      id: 'UU-11',
-      planetName: 'Cancri E',
+      id: "UU-11",
+      planetName: "Cancri E",
       isFriend: true,
       coordinates: {
         lat: {
@@ -31,8 +31,8 @@ module.exports = {
       }
     },
     {
-      id: 'KXL-1',
-      planetName: 'Wasp-12b',
+      id: "KXL-1",
+      planetName: "Wasp-12b",
       isFriend: false,
       coordinates: {
         lat: {
@@ -46,4 +46,4 @@ module.exports = {
       }
     }
   ]
-}
+};
