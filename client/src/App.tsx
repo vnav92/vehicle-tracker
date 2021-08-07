@@ -6,19 +6,19 @@ import { UfoData, UfoVehiclesMap } from './components';
 
 import styles from './App.module.scss';
 
-export const DEFAULT_PORT = 8080;
-
 const App = () => {
   const [vehiclesData, setVehiclesData] = useState<UfoVehicle[] | null>(null);
   const [hoveredVehicleId, setHoveredVehicleId] = useState<string | null>(null);
   useEffect(() => {
-    const newSocket = socketClient(
-      `http://${window.location.hostname}:${DEFAULT_PORT}`
-    );
+    const newSocket = socketClient(process.env.REACT_APP_API_URL!);
 
     newSocket.on('data', (data: UfoVehicle[]) => {
       setVehiclesData(data);
     });
+
+    newSocket.on('disconnect', () => {
+      setVehiclesData(null)
+    })
     return () => {
       newSocket.close();
     };
