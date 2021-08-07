@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import socketClient from "socket.io-client";
+import React, { useEffect, useState } from 'react';
+import socketClient from 'socket.io-client';
 
-import { VehiclesData } from "./types";
-import { UfoData, UfoVehiclesMap } from "./components";
+import { UfoVehicle } from './types';
+import { UfoData, UfoVehiclesMap } from './components';
 
-import styles from "./App.module.scss";
+import styles from './App.module.scss';
 
-const DEFAULT_PORT = 8080;
+export const DEFAULT_PORT = 8080;
 
 const App = () => {
-  const [vehiclesData, setVehiclesData] = useState<VehiclesData | null>(null);
+  const [vehiclesData, setVehiclesData] = useState<UfoVehicle[] | null>(null);
   const [hoveredVehicleId, setHoveredVehicleId] = useState<string | null>(null);
   useEffect(() => {
     const newSocket = socketClient(
       `http://${window.location.hostname}:${DEFAULT_PORT}`
     );
 
-    newSocket.on("data", (data: VehiclesData) => {
+    newSocket.on('data', (data: UfoVehicle[]) => {
       setVehiclesData(data);
     });
     return () => {

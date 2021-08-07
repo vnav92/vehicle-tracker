@@ -1,2 +1,2 @@
-export * from "./ufo-data";
-export * from "./ufo-vehicles-map";
+export * from './ufo-data';
+export * from './ufo-vehicles-map';

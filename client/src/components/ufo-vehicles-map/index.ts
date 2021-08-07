@@ -1,1 +1,1 @@
-export { UfoVehiclesMap } from "./ufo-vehicles-map.component";
+export { UfoVehiclesMap } from './ufo-vehicles-map.component';

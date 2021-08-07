@@ -1,1 +1,1 @@
-export { UfoData } from "./ufo-data.component";
+export { UfoData } from './ufo-data.component';

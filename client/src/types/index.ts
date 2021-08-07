@@ -1,1 +1,1 @@
-export type { VehiclesData } from "./ufo-vehicle.type";
+export type { UfoVehicle } from './ufo-vehicle.type';

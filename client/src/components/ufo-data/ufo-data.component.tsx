@@ -1,6 +1,6 @@
-import React from "react";
-import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngry,
   faGlobe,
@@ -8,13 +8,13 @@ import {
   faLocationArrow,
   faBan,
   faSmile
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
-import { VehiclesData } from "../../types";
-import styles from "./ufo-data.module.scss";
+import { UfoVehicle } from '../../types';
+import styles from './ufo-data.module.scss';
 
 type UfoDataProps = {
-  vehiclesData: VehiclesData | null;
+  vehiclesData: UfoVehicle[] | null;
   className?: string;
   onHoveredVehicleChange: (id: string | null) => void;
 };
@@ -24,14 +24,14 @@ export const UfoData: React.FC<UfoDataProps> = ({
   onHoveredVehicleChange
 }) => {
   const parsedCoordinate = (coordinate: number) =>
-    `${String(coordinate).padEnd(5, "0").replace(".", "°")}'`;
+    `${String(coordinate).padEnd(5, '0').replace('.', '°')}'`;
 
   return (
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.headingSection}>
         <h1 className={styles.header}>Ufo tracker</h1>
-        <div className={styles.connectionQualityBadge}>
-          {vehiclesData ? "Signal good" : "No signal"}
+        <div className={styles.connectionQualityBadge} role="status">
+          {vehiclesData ? 'Signal good' : 'No signal'}
           <span
             className={classNames(
               styles.qualityMarker,
@@ -49,6 +49,7 @@ export const UfoData: React.FC<UfoDataProps> = ({
             <div
               key={vehicle.id}
               className={styles.vehicleSection}
+              data-testid="vehicle-section"
               onMouseEnter={() => onHoveredVehicleChange(vehicle.id)}
               onMouseLeave={() => onHoveredVehicleChange(null)}
             >
@@ -59,12 +60,12 @@ export const UfoData: React.FC<UfoDataProps> = ({
                 <FontAwesomeIcon icon={faGlobe} /> {vehicle.planetName}
               </span>
               <span className={styles.dataItem}>
-                <FontAwesomeIcon icon={vehicle.isFriend ? faSmile : faAngry} />{" "}
-                {vehicle.isFriend ? "Friend" : "Enemy"}
+                <FontAwesomeIcon icon={vehicle.isFriend ? faSmile : faAngry} />{' '}
+                {vehicle.isFriend ? 'Friend' : 'Enemy'}
               </span>
               <span className={styles.dataItem}>
-                <FontAwesomeIcon icon={faLocationArrow} />{" "}
-                {parsedCoordinate(vehicle.coordinates.lat)}{" "}
+                <FontAwesomeIcon icon={faLocationArrow} />{' '}
+                {parsedCoordinate(vehicle.coordinates.lat)}{' '}
                 {parsedCoordinate(vehicle.coordinates.lng)}
               </span>
             </div>
@@ -72,7 +73,7 @@ export const UfoData: React.FC<UfoDataProps> = ({
         </div>
       ) : (
         <div className={styles.noDataWrapper}>
-          <FontAwesomeIcon icon={faBan}/>
+          <FontAwesomeIcon icon={faBan} />
           <h3 className={styles.noDataHeader}>No data</h3>
         </div>
       )}

@@ -1,4 +1,4 @@
-@import "../../styles";
+@import '../../styles';
 
 .wrapper {
   padding-left: $default-spacing;
@@ -89,7 +89,6 @@
 .noDataHeader {
   margin-left: calc(#{$default-spacing} / 2);
   font-weight: 200;
-
 }
 
 @media screen and (max-width: $layout-align-breakpoint) {
@@ -105,5 +104,3 @@
     flex: unset;
   }
 }
-
-

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { LatLngTuple } from "leaflet";
-import { useMap } from "react-leaflet";
+import React, { useEffect } from 'react';
+import { LatLngTuple } from 'leaflet';
+import { useMap } from 'react-leaflet';
 
-import { VehiclesData } from "../../types";
+import { UfoVehicle } from '../../types';
 
 type MapCenterSetterProps = {
-  vehiclesData: VehiclesData | null;
+  vehiclesData: UfoVehicle[] | null;
   hoveredVehicleId: string | null;
 };
 
@@ -19,7 +19,7 @@ export const MapCenterSetter: React.FC<MapCenterSetterProps> = ({
       ? vehiclesData.find(vehicle => vehicle.id === hoveredVehicleId)
       : null;
 
-  const getCenterPointCoordinates = (vehiclesData: VehiclesData) => {
+  const getCenterPointCoordinates = (vehiclesData: UfoVehicle[]) => {
     const summedDegrees = vehiclesData.reduce<[number, number]>(
       (acc, curr, index, arr) => {
         acc[0] += curr.coordinates.lat;
