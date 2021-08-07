@@ -36,7 +36,7 @@ export const MapCenterSetter: React.FC<MapCenterSetterProps> = ({
   };
 
   useEffect(() => {
-    if (vehiclesData) {
+    if (vehiclesData?.length) {
       const coordinates = activeVehicle
         ? [activeVehicle.coordinates.lat, activeVehicle.coordinates.lng]
         : getCenterPointCoordinates(vehiclesData);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import socketClient from 'socket.io-client';
 
-import { UfoVehicle } from './types';
 import { UfoData, UfoVehiclesMap } from './components';
+import { UfoVehicle } from './types';
 
 import styles from './App.module.scss';
 
@@ -17,8 +17,8 @@ const App = () => {
     });
 
     newSocket.on('disconnect', () => {
-      setVehiclesData(null)
-    })
+      setVehiclesData(null);
+    });
     return () => {
       newSocket.close();
     };
