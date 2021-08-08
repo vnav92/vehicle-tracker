@@ -3,10 +3,10 @@
 $wrapper-max-width: 1400px;
 
 .wrapper {
-  padding: $default-spacing;
   width: 100%;
   max-width: $wrapper-max-width;
   display: flex;
+  padding: $default-spacing;
   margin: auto;
   background: $background-color;
 }
@@ -17,8 +17,8 @@ $wrapper-max-width: 1400px;
 
 @media screen and (max-width: $layout-align-breakpoint) {
   .wrapper {
-    flex-direction: column;
     margin: auto calc(#{$default-spacing} * 4);
+    flex-direction: column;
   }
 
   .layoutMember {

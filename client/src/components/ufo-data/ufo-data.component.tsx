@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngry,
+  faBan,
   faGlobe,
   faIdCard,
   faLocationArrow,
-  faBan,
   faSmile
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,6 +18,7 @@ type UfoDataProps = {
   className?: string;
   onHoveredVehicleChange: (id: string | null) => void;
 };
+
 export const UfoData: React.FC<UfoDataProps> = ({
   vehiclesData,
   className,

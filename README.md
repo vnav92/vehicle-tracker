@@ -17,6 +17,7 @@ if they are friends or enemies and exact coordinates).
 
 Also, when hovering over particular vehicle`s section you can easily see on the map, which vehicle you are analyzing 
 (proper icon on the map is getting red color and map is automatically centering at this vehicle).
+You also can adjust the vehicles displayed on the map by filtering them out (using search input on the top of the map).
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ Install [Node.js®](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.
 
 ## Installation
 
-This app contains `server` and `client` sections, to install dependencies of both:
+This app contains `server` and `client` directories, to install dependencies of both:
 
 in `./server` run:
 ```

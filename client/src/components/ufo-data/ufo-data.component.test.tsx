@@ -34,7 +34,6 @@ describe('UfoDataComponent', () => {
       />
     );
 
-    screen.debug();
     expect(
       within(screen.getByRole('status')).getByText('Signal good')
     ).toBeInTheDocument();
