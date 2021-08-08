@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server application for vehicles-tracker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "prettier": "npx prettier --write ."
+  },
+  "author": "Mateusz Jankowski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "prettier": "^2.3.2",
+    "socket.io": "^4.1.3"
+  }
+}

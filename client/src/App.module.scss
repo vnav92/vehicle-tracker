@@ -1,0 +1,27 @@
+@import './styles';
+
+$wrapper-max-width: 1400px;
+
+.wrapper {
+  width: 100%;
+  max-width: $wrapper-max-width;
+  display: flex;
+  padding: $default-spacing;
+  margin: auto;
+  background: $background-color;
+}
+
+.layoutMember {
+  flex: 1;
+}
+
+@media screen and (max-width: $layout-align-breakpoint) {
+  .wrapper {
+    margin: auto calc(#{$default-spacing} * 4);
+    flex-direction: column;
+  }
+
+  .layoutMember {
+    flex: unset;
+  }
+}

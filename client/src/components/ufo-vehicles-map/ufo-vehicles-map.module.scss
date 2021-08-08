@@ -1,0 +1,34 @@
+@import '../../styles';
+
+$map-wrapper-height: 420px;
+$tooltip-margin-top: 30px;
+$search-z-index: 1000;
+
+.mapWrapper {
+  height: $map-wrapper-height;
+  position: relative;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.search {
+  position: absolute;
+  left: 50%;
+  top: calc(#{$default-spacing} / 2);
+  z-index: $search-z-index;
+  transform: translateX(-50%);
+}
+
+.tooltip {
+  margin-top: $tooltip-margin-top;
+  background: $dark-background-color;
+  color: $text-color;
+  border: 1px solid transparent;
+
+  &:before {
+    border-bottom-color: $dark-background-color;
+  }
+}

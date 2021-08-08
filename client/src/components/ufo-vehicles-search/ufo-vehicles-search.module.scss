@@ -1,0 +1,22 @@
+@import '../../styles';
+
+.wrapper {
+  padding: $default-spacing;
+  background-color: $background-color;
+}
+
+.searchLabel {
+  color: $text-color;
+  font-weight: 300;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.searchInput {
+  margin-left: $default-spacing;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $text-color;
+  color: $text-color;
+}
