@@ -1,11 +1,14 @@
 import React from 'react';
-import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet";
-import styles from "./ufo-vehicles-map.module.scss";
-import L from "leaflet";
-import defaultUfoIcon from "../../assets/ufo-icon.svg";
-import activeUfoIcon from "../../assets/active-ufo-icon.svg";
-import { UfoVehicle } from "../../types";
-import { useMapCenter } from "./ufo-vehicles-map.hook";
+import { Marker, TileLayer, Tooltip } from 'react-leaflet';
+import L from 'leaflet';
+
+import defaultUfoIcon from '../../../assets/ufo-icon.svg';
+import activeUfoIcon from '../../../assets/active-ufo-icon.svg';
+import { UfoVehicle } from '../../../types';
+import { useMapCenter } from '../ufo-vehicles-map.hook';
+
+import 'leaflet/dist/leaflet.css';
+import styles from './ufo-vehicles-map-content.module.scss';
 
 const ICON_SIZE = 50;
 
@@ -19,23 +22,23 @@ const activeIcon = L.icon({
   iconSize: [ICON_SIZE, ICON_SIZE]
 });
 
-type UfoVehiclesMapContent = {
-  visibleVehicles: UfoVehicle[];
+type UfoVehiclesMapContentProps = {
+  vehiclesData: UfoVehicle[] | null;
   hoveredVehicleId: string | null;
-}
+};
 
-export const UfoVehiclesMapContent: React.FC<UfoVehiclesMapContent> = ({
-  visibleVehicles,
+export const UfoVehiclesMapContent: React.FC<UfoVehiclesMapContentProps> = ({
+  vehiclesData,
   hoveredVehicleId
 }) => {
-  useMapCenter(visibleVehicles, hoveredVehicleId)
+  useMapCenter(vehiclesData, hoveredVehicleId);
   return (
     <>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {visibleVehicles?.map(vehicle => (
+      {vehiclesData?.map(vehicle => (
         <Marker
           key={vehicle.id}
           position={[vehicle.coordinates.lat, vehicle.coordinates.lng]}
@@ -55,5 +58,5 @@ export const UfoVehiclesMapContent: React.FC<UfoVehiclesMapContent> = ({
         </Marker>
       ))}
     </>
-  )
-}
+  );
+};

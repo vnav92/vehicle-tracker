@@ -1,32 +1,18 @@
 import React, { ComponentProps, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import L, { LatLngExpression } from 'leaflet';
-import { MapContainer, Marker, TileLayer, Tooltip } from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
+import { MapContainer } from 'react-leaflet';
 
-import activeUfoIcon from '../../assets/active-ufo-icon.svg';
-import defaultUfoIcon from '../../assets/ufo-icon.svg';
 import { UfoVehicle } from '../../types';
 import { UfoVehiclesSearch } from '../ufo-vehicles-search';
-import { MapCenterSetter } from './map-center-setter.component';
+import { UfoVehiclesMapContent } from './ufo-vehicles-map-content/ufo-vehicles-map-content.component';
 
-import 'leaflet/dist/leaflet.css';
 import styles from './ufo-vehicles-map.module.scss';
 
-const ICON_SIZE = 50;
 const INITIAL_MAP_CENTER: LatLngExpression = [50, 12];
 
-const defaultIcon = L.icon({
-  iconUrl: defaultUfoIcon,
-  iconSize: [ICON_SIZE, ICON_SIZE]
-});
-
-const activeIcon = L.icon({
-  iconUrl: activeUfoIcon,
-  iconSize: [ICON_SIZE, ICON_SIZE]
-});
-
 export const UfoVehiclesMap: React.FC<
-  ComponentProps<typeof MapCenterSetter> & { className?: string }
+  ComponentProps<typeof UfoVehiclesMapContent> & { className: string }
 > = ({ vehiclesData, className, hoveredVehicleId }) => {
   const [visibleVehicles, setVisibleVehicles] = useState<UfoVehicle[] | null>(
     vehiclesData
@@ -54,31 +40,12 @@ export const UfoVehiclesMap: React.FC<
           onVisibleVehiclesChange={setSearchValue}
         />
       )}
-      <MapContainer center={INITIAL_MAP_CENTER} zoom={10} className={styles.mapContainer}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {visibleVehicles?.map(vehicle => (
-          <Marker
-            key={vehicle.id}
-            position={[vehicle.coordinates.lat, vehicle.coordinates.lng]}
-            icon={
-              hoveredVehicleId && hoveredVehicleId === vehicle.id
-                ? activeIcon
-                : defaultIcon
-            }
-          >
-            <Tooltip
-              permanent={true}
-              direction="bottom"
-              className={styles.tooltip}
-            >
-              {vehicle.id}
-            </Tooltip>
-          </Marker>
-        ))}
-        <MapCenterSetter
+      <MapContainer
+        center={INITIAL_MAP_CENTER}
+        zoom={10}
+        className={styles.mapContainer}
+      >
+        <UfoVehiclesMapContent
           vehiclesData={visibleVehicles}
           hoveredVehicleId={hoveredVehicleId}
         />
